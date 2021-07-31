@@ -13,6 +13,8 @@ Wall.prototype.play = function play() {
     top: p1.y > p2.y ? "p2" : "p1",
     left: p1.x > p2.x ? "p2" : "p1",
     right: p1.x > p2.x ? "p1" : "p2",
+    p1: "p1",
+    p2: "p2"
   };
   const animType = flags.animType;
   const anchor = anchors[flags.anchor];
@@ -66,7 +68,7 @@ DoorControl.prototype._onMouseDown = function _onMouseDown(event) {
   let flag = this.wall.document.getFlag("animated-walls","animType")
   if(flag && flag != "none"){
     if(this.wall.isAnimating) return false
-    if(this.wall.playReverse){
+    if(this.wall.playReverse && this.wall.document.getFlag("animated-walls","reverse")){
       this.wall.reverseAnimation();
       this.wall.playReverse = false;
     }else{

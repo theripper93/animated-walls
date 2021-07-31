@@ -13,5 +13,8 @@
     "animated-walls.wallconfig.anchor.opt2": "Bottom",
     "animated-walls.wallconfig.anchor.opt3": "Right",
     "animated-walls.wallconfig.anchor.opt4": "Left",
-    "animated-walls.wallconfig.anchor.opt0": "Center"
+    "animated-walls.wallconfig.anchor.opt0": "Center",
+    "animated-walls.wallconfig.anchor.opt5": "Manual (P1)",
+    "animated-walls.wallconfig.anchor.opt6": "Manual (P2)",
+    "animated-walls.wallconfig.reverse": "Reverse on Subsequent activations"
 }

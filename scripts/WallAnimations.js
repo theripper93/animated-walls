@@ -26,7 +26,7 @@ class WallAnimation {
       anchor: null,
       preload: false,
     },
-    keyframes = 1000
+    keyframes = 100
   ) {
     this.wall = wall;
     this.loop = options.loop;

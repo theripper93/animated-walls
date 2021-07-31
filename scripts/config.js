@@ -21,7 +21,9 @@ Hooks.on("renderWallConfig", function(app,html) {
     <option value="bottom" ${flags?.anchor == "bottom" ? 'selected=""' : ""}>${game.i18n.localize("animated-walls.wallconfig.anchor.opt2")}</option>
     <option value="right" ${flags?.anchor == "right" ? 'selected=""' : ""}>${game.i18n.localize("animated-walls.wallconfig.anchor.opt3")}</option>
     <option value="left" ${flags?.anchor == "left" ? 'selected=""' : ""}>${game.i18n.localize("animated-walls.wallconfig.anchor.opt4")}</option>
-</select>
+    <option value="p1" ${flags?.anchor == "p1" ? 'selected=""' : ""}>${game.i18n.localize("animated-walls.wallconfig.anchor.opt5")}</option>
+    <option value="p2" ${flags?.anchor == "p2" ? 'selected=""' : ""}>${game.i18n.localize("animated-walls.wallconfig.anchor.opt6")}</option>
+    </select>
 </div>
 
 <div class="form-group">
@@ -38,6 +40,13 @@ Hooks.on("renderWallConfig", function(app,html) {
             <label>${game.i18n.localize("animated-walls.wallconfig.rotation")}</label>
             <input type="text" name="flags.animated-walls.rotation" value="${flags?.rotation || 0}" data-dtype="Number">
         </div>
+
+    <div class="form-group">
+        <label>${game.i18n.localize("animated-walls.wallconfig.reverse")}</label>
+        <div class="form-fields">
+            <input type="checkbox" ${flags?.reverse ? 'checked=""' : ""} name="flags.animated-walls.reverse">
+        </div>
+      </div>
 `
 
     html.find(`select[name="ds"]`).closest(".form-group").after(confightml)
