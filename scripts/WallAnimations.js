@@ -12,6 +12,22 @@ class WallAnimationSequence {
     }
     this.wall.isAnimating = false;
   }
+
+  static SocketPlayAnimation(wallId){
+    let wall = canvas.walls.get(wallId);
+    let macro = wall.document.getFlag("animated-walls","macro")  
+    if(macro){
+      game.macros.getName(macro)?.execute(wall)
+    }
+      if(wall.isAnimating) return false
+      if(wall.playReverse && wall.document.getFlag("animated-walls","reverse")){
+        wall.reverseAnimation();
+        wall.playReverse = false;
+      }else{
+        wall.playReverse = true;
+        wall.play();
+      }
+  }
 }
 
 class WallAnimation {

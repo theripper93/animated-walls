@@ -66,19 +66,9 @@ DoorControl.prototype._onMouseDown = function _onMouseDown(event) {
 
   // Toggle between OPEN and CLOSED states
   let flag = this.wall.document.getFlag("animated-walls","animType")
-  let macro = this.wall.document.getFlag("animated-walls","macro")
-  if(macro){
-    game.macros.getName(macro)?.execute(this.wall)
-  }
+
   if(flag && flag != "none"){
-    if(this.wall.isAnimating) return false
-    if(this.wall.playReverse && this.wall.document.getFlag("animated-walls","reverse")){
-      this.wall.reverseAnimation();
-      this.wall.playReverse = false;
-    }else{
-      this.wall.playReverse = true;
-      this.wall.play();
-    }
+    AnimatedWallsSocket.executeAsGM("playAnimation", this.wall.id);
     return false
   }else{
   return this.wall.document.update({ds: state === states.CLOSED ? states.OPEN : states.CLOSED});
