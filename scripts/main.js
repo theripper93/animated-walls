@@ -8,6 +8,7 @@ Hooks.once('ready', async function() {
 
 
 function wallAnimTest(wall){
-    let moveAnim = new WallAnimation(wall, 3000,{type: 'move', direction: Math.PI/2, distance: 1000})
-    wall.animate({sequence: [moveAnim]})
+    let moveAnim = new WallAnimation(wall, 3000,{type: 'move', direction: Math.PI, distance: 1000})
+    let rotateAnim = new WallAnimation(wall, 3000,{type: 'rotate', rotation: Math.PI, anchor: "p1" , distance: 1000})
+    wall.animate({sequence: [moveAnim, rotateAnim]})
 }
