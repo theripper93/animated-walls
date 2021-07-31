@@ -26,7 +26,7 @@ class WallAnimation {
       anchor: null,
       preload: false,
     },
-    keyframes = 100
+    keyframes = null
   ) {
     this.wall = wall;
     this.loop = options.loop;
@@ -35,7 +35,7 @@ class WallAnimation {
     this.direction = options.direction;
     this.distance = options.distance;
     this.rotation = options.rotation;
-    this.keyframes = keyframes;
+    this.keyframes = keyframes || this.speed/33;
     this.frameTime = this.speed / this.keyframes;
     this.anchor = options.anchor;
     this.preload = options.preload;

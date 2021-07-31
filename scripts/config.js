@@ -47,6 +47,11 @@ Hooks.on("renderWallConfig", function(app,html) {
             <input type="checkbox" ${flags?.reverse ? 'checked=""' : ""} name="flags.animated-walls.reverse">
         </div>
       </div>
+
+      <div class="form-group">
+      <label>${game.i18n.localize("animated-walls.wallconfig.macro")}</label>
+      <input type="text" name="flags.animated-walls.macro" value="${flags?.macro || ""}">
+  </div>
 `
 
     html.find(`select[name="ds"]`).closest(".form-group").after(confightml)

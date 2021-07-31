@@ -8,7 +8,7 @@ Wall.prototype.play = function play() {
   const p1 = { x: this.data.c[0], y: this.data.c[1] };
   const p2 = { x: this.data.c[2], y: this.data.c[3] };
   const anchors = {
-    center: "c",
+    c: "c",
     bottom: p1.y > p2.y ? "p1" : "p2",
     top: p1.y > p2.y ? "p2" : "p1",
     left: p1.x > p2.x ? "p2" : "p1",
@@ -66,6 +66,10 @@ DoorControl.prototype._onMouseDown = function _onMouseDown(event) {
 
   // Toggle between OPEN and CLOSED states
   let flag = this.wall.document.getFlag("animated-walls","animType")
+  let macro = this.wall.document.getFlag("animated-walls","macro")
+  if(macro){
+    game.macros.getName(macro)?.execute(this.wall)
+  }
   if(flag && flag != "none"){
     if(this.wall.isAnimating) return false
     if(this.wall.playReverse && this.wall.document.getFlag("animated-walls","reverse")){
