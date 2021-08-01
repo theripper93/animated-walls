@@ -99,4 +99,24 @@ Hooks.on("renderWallConfig", function(app,html) {
 
     $animtype.trigger("change");
 
+    const style = CONFIG.canvasTextStyle.clone();
+    style.fontSize = Math.max(Math.round(canvas.dimensions.size * 0.36 * 12) / 12, 36);
+    const p1 = new PreciseText("P1", style);
+    const p2 = new PreciseText("P2", style);
+    p1.anchor.set(0.5, 0.5);
+    p2.anchor.set(0.5,0.5);
+    let c = app.object.data.c
+    p1.position.set(c[0], c[1]);
+    p2.position.set(c[2], c[3]);
+    
+    let container = canvas.controls.debug.children.find(c=>c.name=="wallAnimTip") || new PIXI.Container();
+    container.name = "wallAnimTip";
+    container.addChild(p1);
+    container.addChild(p2);
+    canvas.controls.debug.addChild(container);
+    
+})
+
+Hooks.on("closeWallConfig", function() {
+    canvas.controls.debug.children.find(c=>c.name=="wallAnimTip")?.destroy()
 })
