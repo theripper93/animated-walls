@@ -5,7 +5,7 @@ Animate your walls with rotation and movement animations.
 
 ## Forewarning
 
-Animating walls is expensive in terms of performance, on large maps running an animation will cause stuttering, there is no real way around it.
+Animating walls is expensive in terms of performance, on large maps running an animation will cause stuttering, there is no real way around it. That said Animated Walls is not doing anything while walls are not animating so it will never passively impact performance
 
 ## How to use:
 
