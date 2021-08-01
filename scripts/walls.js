@@ -1,11 +1,11 @@
-Wall.prototype.animate = function animate(options) {
+Wall.prototype.animate = async function animate(options) {
   if (!this.isAnimating) {
     this.isAnimating = true;
     await new WallAnimationSequence(this, options).play();
   }
 };
 
-Wall.prototype.play = function play() {
+Wall.prototype.play = async function play() {
   const flags = this.data.flags["animated-walls"];
   const p1 = { x: this.data.c[0], y: this.data.c[1] };
   const p2 = { x: this.data.c[2], y: this.data.c[3] };
@@ -32,7 +32,7 @@ Wall.prototype.play = function play() {
     anchor: anchor,
   });
 
-  this.reverseAnimation = function reverse() {
+  this.reverseAnimation = async function reverse() {
     let reverseanimation = new WallAnimation(this, duration, {
       type: animType,
       direction: rotation-Math.PI,
@@ -40,12 +40,19 @@ Wall.prototype.play = function play() {
       distance: distance,
       anchor: anchor,
     });
-    if (!this.isAnimating) new WallAnimationSequence(this, {sequence: [reverseanimation]});
-    this.isAnimating = true;
+    if (!this.isAnimating) {
+      this.isAnimating = true
+      await new WallAnimationSequence(this, {sequence: [reverseanimation]}).play();
+      this.isAnimating = false
+    }
+    ;
   }
 
-  if (!this.isAnimating) new WallAnimationSequence(this, {sequence: [animation]});
-  this.isAnimating = true;
+  if (!this.isAnimating) {
+    this.isAnimating = true;
+    await new WallAnimationSequence(this, {sequence: [animation]}).play();
+    this.isAnimating = false;
+  }
 };
 
 DoorControl.prototype._onMouseDown = function _onMouseDown(event) {
