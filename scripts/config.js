@@ -56,4 +56,43 @@ Hooks.on("renderWallConfig", function(app,html) {
 
     html.find(`select[name="ds"]`).closest(".form-group").after(confightml)
 
+    //get all the jquery elements
+
+    let $animtype = html.find('select[name="flags.animated-walls.animType"]')
+    let $anchor = html.find('select[name="flags.animated-walls.anchor"]').closest(".form-group")
+    let $distance = html.find('input[name="flags.animated-walls.distance"]').closest(".form-group")
+    let $duration = html.find('input[name="flags.animated-walls.duration"]').closest(".form-group")
+    let $rotation = html.find('input[name="flags.animated-walls.rotation"]').closest(".form-group")
+    let $reverse = html.find('input[name="flags.animated-walls.reverse"]').closest(".form-group")
+
+    $animtype.on("change", function() {
+        const animType = $(this).val();
+        switch (animType) {
+            case "none":
+                $anchor.hide();
+                $distance.hide();
+                $duration.hide();
+                $rotation.hide();
+                $reverse.hide();
+                break;
+            case "move":
+                $anchor.hide();
+                $distance.show();
+                $duration.show();
+                $rotation.hide();
+                $reverse.show();
+                break;
+            case "rotate":
+                $anchor.show();
+                $distance.hide();
+                $duration.show();
+                $rotation.show();
+                $reverse.show();
+
+        }
+        html.css({height: "auto"});
+        })
+
+    $animtype.trigger("change");
+
 })
