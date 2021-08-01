@@ -17,5 +17,6 @@
     "animated-walls.wallconfig.anchor.opt5": "Manual (P1)",
     "animated-walls.wallconfig.anchor.opt6": "Manual (P2)",
     "animated-walls.wallconfig.reverse": "Reverse on Subsequent activations",
-    "animated-walls.wallconfig.macro": "Execute Macro"
+    "animated-walls.wallconfig.macro": "Execute Macro",
+    "animated-walls.wallconfig.animation.hint": "Animated Walls requires the wall to be a door as it uses the door icon to trigger the animation (note that the door can be secret as well)."
 }

@@ -3,6 +3,7 @@ Hooks.on("renderWallConfig", function(app,html) {
     const flags = app.object.data.flags["animated-walls"];
 
     const confightml = `
+    <p class="notes">${game.i18n.localize("animated-walls.wallconfig.animation.hint")}</p>
     <div class="form-group">
     <label>${game.i18n.localize("animated-walls.wallconfig.animtype.title")}</label>
     <select name="flags.animated-walls.animType">
