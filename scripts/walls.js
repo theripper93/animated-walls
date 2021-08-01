@@ -1,6 +1,8 @@
 Wall.prototype.animate = function animate(options) {
-  if (!this.isAnimating) new WallAnimationSequence(this, options);
-  this.isAnimating = true;
+  if (!this.isAnimating) {
+    this.isAnimating = true;
+    await new WallAnimationSequence(this, options).play();
+  }
 };
 
 Wall.prototype.play = function play() {

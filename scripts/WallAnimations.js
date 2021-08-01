@@ -4,7 +4,6 @@ class WallAnimationSequence {
     this.sequence = options.sequence;
     this.loop = options.loop;
     this.onComplete = options.onComplete;
-    this.play();
   }
   async play() {
     for (let animation of this.sequence) {
