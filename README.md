@@ -47,7 +47,7 @@ Moving animation:
 const moveAnim = new WallAnimation(wall, timeInMs,{type: 'move', direction: inRadians, distance: inPixels})
 ```
 
-Rotatin animation
+Rotating animation
 
 ```js
 const rotateAnim = new WallAnimation(wall, timeInMs,{type: 'rotate', rotation: inRadians, anchor: "p1"||"p2"||"c"})
