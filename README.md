@@ -35,6 +35,10 @@ You need the following fields for it to work:
 # Execute Animation:
 When you have an animation setup, the door icon will show a play button (gm only) when clicking on the door icon the wall will animate instead of opening\closing the door
 
+## FAQ
+
+**How do i do a door that opens gradually?:** (aka a peaking door). Simply set the animation to rotate, input p1 or p2 in the anchor and set the rotation to something like 10 degrees. If you don't check the reverse animation every time you click on the door icon the door will open by 10 degrees, the only side effect is that you are gonna have to close the door manually since there is no reverse animation, you could automate this with a macro (if you really wanted)
+
 ## Macros and Scripts
 
 You can chain together animation and call them via scripts, this works also well with sequencer, for example you could play a tile animation together with the wall animation
