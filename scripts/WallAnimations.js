@@ -12,7 +12,7 @@ class WallAnimationSequence {
     this.wall.isAnimating = false;
   }
 
-  static SocketPlayAnimation(wallId){
+  static async SocketPlayAnimation(wallId){
     let wall = canvas.walls.get(wallId);
     let macro = wall.document.getFlag("animated-walls","macro")  
     if(macro){
@@ -20,10 +20,11 @@ class WallAnimationSequence {
     }
       if(wall.isAnimating) return false
       if(wall.document.getFlag("animated-walls","playReverse") && wall.document.getFlag("animated-walls","reverse")){
+        await wall.document.setFlag("animated-walls","playReverse",false)
         wall.reverseAnimation();
-        wall.document.setFlag("animated-walls","playReverse",false)
+        
       }else{
-        wall.document.setFlag("animated-walls","playReverse",true)
+        await wall.document.setFlag("animated-walls","playReverse",true)
         wall.play();
       }
   }
