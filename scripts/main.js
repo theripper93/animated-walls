@@ -1,7 +1,20 @@
 Hooks.once('init', async function() {
-
+    libWrapper.register(
+        "animated-walls",
+        "DoorControl.prototype._onMouseDown",
+        AnimatedWallsOverrides._onMouseDown,
+        "OVERRIDE"
+      );
+      libWrapper.register(
+        "animated-walls",
+        "DoorControl.prototype._getTexture",
+        AnimatedWallsOverrides._getTexture,
+        "MIXED"
+      );
 });
 
+CONFIG.controlIcons.doorPlay = "modules/animated-walls/icons/steel-door-play.webp"
+CONFIG.controlIcons.doorSecretPlay = "modules/animated-walls/icons/steel-door-secret-play.webp" 
 Hooks.once('ready', async function() {
 
 });

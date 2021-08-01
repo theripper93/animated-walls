@@ -83,3 +83,49 @@ DoorControl.prototype._onMouseDown = function _onMouseDown(event) {
   return this.wall.document.update({ds: state === states.CLOSED ? states.OPEN : states.CLOSED});
   }
 }
+
+DoorControl.prototype._getTexture
+
+class AnimatedWallsOverrides{
+  static _onMouseDown(event) {
+    event.stopPropagation();
+    const state = this.wall.data.ds;
+    const states = CONST.WALL_DOOR_STATES;
+  
+    // Determine whether the player can control the door at this time
+    if ( !game.user.can("WALL_DOORS") ) return false;
+    if ( game.paused && !game.user.isGM ) {
+      ui.notifications.warn("GAME.PausedWarning", {localize: true});
+      return false;
+    }
+  
+    // Play an audio cue for locked doors
+    if ( state === states.LOCKED ) {
+      AudioHelper.play({src: CONFIG.sounds.lock});
+      return false;
+    }
+  
+    // Toggle between OPEN and CLOSED states
+    let flag = this.wall.document.getFlag("animated-walls","animType")
+  
+    if(flag && flag != "none"){
+      AnimatedWallsSocket.executeAsGM("playAnimation", this.wall.id);
+      return false
+    }else{
+    return this.wall.document.update({ds: state === states.CLOSED ? states.OPEN : states.CLOSED});
+    }
+  }
+  static _getTexture(wrapped,...args) {
+
+    const ds = CONST.WALL_DOOR_STATES;
+    let s = this.wall.data.ds;
+
+    let flag = this.wall.document.getFlag("animated-walls","animType")
+    if(game.user.isGM && flag && flag != "none" && s != ds.LOCKED){
+      if ( (s === ds.CLOSED) && (this.wall.data.door === CONST.WALL_DOOR_TYPES.SECRET) ) return getTexture(CONFIG.controlIcons.doorSecretPlay)
+      return getTexture(CONFIG.controlIcons.doorPlay)
+    }else{
+      return wrapped(...args)
+    }
+  }
+}
