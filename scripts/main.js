@@ -27,7 +27,7 @@ Hooks.once("socketlib.ready", () => {
 });
 
 function wallAnimTest(wall){
-    let moveAnim = new WallAnimation(wall, 3000,{type: 'move', direction: Math.PI, distance: 1000})
-    let rotateAnim = new WallAnimation(wall, 3000,{type: 'rotate', rotation: Math.PI, anchor: "p1" , distance: 1000})
+    const moveAnim = new WallAnimation(wall, 3000,{type: 'move', direction: Math.PI, distance: 1000})
+    const rotateAnim = new WallAnimation(wall, 3000,{type: 'rotate', rotation: Math.PI, anchor: "p1" , distance: 1000})
     wall.animate({sequence: [moveAnim, rotateAnim]})
 }

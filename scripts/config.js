@@ -3,6 +3,7 @@ Hooks.on("renderWallConfig", function(app,html) {
     const flags = app.object.data.flags["animated-walls"];
 
     const confightml = `
+    <hr>
     <p class="notes">${game.i18n.localize("animated-walls.wallconfig.animation.hint")}</p>
     <div class="form-group">
     <label>${game.i18n.localize("animated-walls.wallconfig.animtype.title")}</label>
@@ -53,6 +54,8 @@ Hooks.on("renderWallConfig", function(app,html) {
       <label>${game.i18n.localize("animated-walls.wallconfig.macro")}</label>
       <input type="text" name="flags.animated-walls.macro" value="${flags?.macro || ""}">
   </div>
+  
+  <hr>
 `
 
     html.find(`select[name="ds"]`).closest(".form-group").after(confightml)
