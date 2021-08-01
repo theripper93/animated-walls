@@ -19,11 +19,11 @@ class WallAnimationSequence {
       game.macros.getName(macro)?.execute(wall)
     }
       if(wall.isAnimating) return false
-      if(wall.playReverse && wall.document.getFlag("animated-walls","reverse")){
+      if(wall.document.getFlag("animated-walls","playReverse") && wall.document.getFlag("animated-walls","reverse")){
         wall.reverseAnimation();
-        wall.playReverse = false;
+        wall.document.setFlag("animated-walls","playReverse",false)
       }else{
-        wall.playReverse = true;
+        wall.document.setFlag("animated-walls","playReverse",true)
         wall.play();
       }
   }
