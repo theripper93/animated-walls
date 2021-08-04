@@ -3,6 +3,8 @@ Animate your walls with rotation and movement animations.
 
 ![Latest Release Download Count](https://img.shields.io/github/downloads/theripper93/animated-walls/latest/module.zip?color=2b82fc&label=DOWNLOADS&style=for-the-badge) [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fanimated-walls&colorB=03ff1c&style=for-the-badge)](https://forge-vtt.com/bazaar#package=animated-walls) ![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ftheripper93%2Fanimated-walls%2Fmain%2Fmodule.json&label=Foundry%20Version&query=$.compatibleCoreVersion&colorB=orange&style=for-the-badge) [![alt-text](https://img.shields.io/badge/-Patreon-%23ff424d?style=for-the-badge)](https://www.patreon.com/theripper93) [![alt-text](https://img.shields.io/badge/-Discord-%235662f6?style=for-the-badge)](https://discord.gg/F53gBjR97G)
 
+![cx65wl](https://user-images.githubusercontent.com/1346839/127935450-a3425392-28a5-4c90-a7c4-bb4a94ffeba3.gif)
+
 ## Forewarning
 
 Animating walls is expensive in terms of performance, on large maps running an animation will cause stuttering, there is no real way around it. That said Animated Walls is not doing anything while walls are not animating so it will never passively impact performance
