@@ -83,7 +83,7 @@ Hooks.on("renderWallConfig", function(app,html) {
                 $anchor.hide();
                 $distance.show();
                 $duration.show();
-                $rotation.hide();
+                $rotation.show();
                 $reverse.show();
                 break;
             case "rotate":
