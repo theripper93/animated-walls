@@ -11,6 +11,12 @@ Hooks.once('init', async function() {
         AnimatedWallsOverrides._getTexture,
         "MIXED"
       );
+      libWrapper.register(
+        "animated-walls",
+        "DoorControl.prototype.isVisible",
+        AnimatedWallsOverrides.draw,
+        "MIXED"
+      );
 });
 
 CONFIG.controlIcons.doorPlay = "modules/animated-walls/icons/steel-door-play.webp"

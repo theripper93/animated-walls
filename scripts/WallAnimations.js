@@ -10,6 +10,8 @@ class WallAnimationSequence {
       await animation.playAnimation();
     }
     this.wall.isAnimating = false;
+    const control = canvas.controls.doors?.children?.find(d=>d.wall.id == this.wall.id)
+    if(control) control.visible = control.isVisible
   }
 
   static async SocketPlayAnimation(wallId){

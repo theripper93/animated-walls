@@ -47,6 +47,7 @@ Wall.prototype.play = async function play() {
       }).play();
       this.isAnimating = false;
     }
+
   };
 
   if (!this.isAnimating) {
@@ -91,40 +92,12 @@ Wall.prototype.reverseAnimation = async function reverse() {
   }
 };
 
-DoorControl.prototype._onMouseDown = function _onMouseDown(event) {
-  event.stopPropagation();
-  const state = this.wall.data.ds;
-  const states = CONST.WALL_DOOR_STATES;
-
-  // Determine whether the player can control the door at this time
-  if (!game.user.can("WALL_DOORS")) return false;
-  if (game.paused && !game.user.isGM) {
-    ui.notifications.warn("GAME.PausedWarning", { localize: true });
-    return false;
-  }
-
-  // Play an audio cue for locked doors
-  if (state === states.LOCKED) {
-    AudioHelper.play({ src: CONFIG.sounds.lock });
-    return false;
-  }
-
-  // Toggle between OPEN and CLOSED states
-  let flag = this.wall.document.getFlag("animated-walls", "animType");
-
-  if (flag && flag != "none") {
-    AnimatedWallsSocket.executeAsGM("playAnimation", this.wall.id);
-    return false;
-  } else {
-    return this.wall.document.update({
-      ds: state === states.CLOSED ? states.OPEN : states.CLOSED,
-    });
-  }
-};
-
-DoorControl.prototype._getTexture;
-
 class AnimatedWallsOverrides {
+  static draw(wrapped,...args){
+    if(this.wall.isAnimating) {
+      return false}
+    else{return wrapped(...args)}
+  }
   static _onMouseDown(event) {
     event.stopPropagation();
     const state = this.wall.data.ds;
