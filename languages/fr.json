@@ -1,0 +1,22 @@
+{
+    "animated-walls.wallconfig.title": "Animation",
+    "animated-walls.wallconfig.animtype.title": "Type d'animation",
+    "animated-walls.wallconfig.animtype.opt0": "Aucun",
+    "animated-walls.wallconfig.animtype.opt1": "Déplacements",
+    "animated-walls.wallconfig.animtype.opt2": "Rotation",
+    "animated-walls.wallconfig.distance": "Distance",
+    "animated-walls.wallconfig.direction": "Direction",
+    "animated-walls.wallconfig.rotation": "Rotation/Direction",
+    "animated-walls.wallconfig.duration": "Durée",
+    "animated-walls.wallconfig.anchor.title": "Ancrage",
+    "animated-walls.wallconfig.anchor.opt1": "Haut",
+    "animated-walls.wallconfig.anchor.opt2": "Bas",
+    "animated-walls.wallconfig.anchor.opt3": "Droit",
+    "animated-walls.wallconfig.anchor.opt4": "Gauche",
+    "animated-walls.wallconfig.anchor.opt0": "Centre",
+    "animated-walls.wallconfig.anchor.opt5": "Manuel (P1)",
+    "animated-walls.wallconfig.anchor.opt6": "Manuel (P2)",
+    "animated-walls.wallconfig.reverse": "Annulation des dernières activations",
+    "animated-walls.wallconfig.macro": "Exécuter la macro",
+    "animated-walls.wallconfig.animation.hint": "Animated Walls nécessitent que le mur soit une porte car l'icône de la porte est utilisée pour déclencher l'animation (notez que la porte peut également être secrète)."
+}
