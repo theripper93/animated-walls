@@ -7,7 +7,7 @@
     "animated-walls.wallconfig.distance": "Distance",
     "animated-walls.wallconfig.direction": "Direction",
     "animated-walls.wallconfig.rotation": "Rotation/Direction",
-    "animated-walls.wallconfig.duration": "Duration",
+    "animated-walls.wallconfig.duration": "Duration (ms)",
     "animated-walls.wallconfig.anchor.title": "Anchor",
     "animated-walls.wallconfig.anchor.opt1": "Top",
     "animated-walls.wallconfig.anchor.opt2": "Bottom",
